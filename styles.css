@@ -1,0 +1,1165 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* Bewolk Header */
+.bewolk-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 3rem 0;
+}
+
+.main-logo {
+    width: 200px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.company-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/* Brands Section */
+.brands {
+    min-height: 100vh;
+    background: #000000;
+    padding: 5rem 0;
+    position: relative;
+}
+
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.brand-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.brand-card:hover::before {
+    left: 100%;
+}
+
+.brand-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.brand-logo {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+}
+
+.brand-img {
+    max-width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.brand-card:hover .brand-img {
+    transform: scale(1.05);
+}
+
+.brand-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+
+/* Brand Pages Styles */
+.brand-header {
+    position: relative;
+    height: 100vh;
+    background: #ffffff; /* beyaz arka plan */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Logo */
+.brand-hero-logo {
+    width: 150px;
+    height: auto;
+    filter: none;
+    padding-top: 15rem; /* logo yukarıdan boşluk */
+}
+
+
+
+
+
+.brand-content {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.content-text h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+}
+
+.content-text h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    color: #1f2937;
+}
+
+.content-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: #374151;
+}
+
+.service-list i {
+    color: #10b981;
+    font-size: 1.2rem;
+}
+
+.brand-project-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.brand-contact {
+    padding: 3rem 0;
+    background: white;
+}
+.brand-project-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+
+.photo-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  width: 100%;
+  max-width: 450px; /* kart boyutu */
+  margin: 2rem auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  cursor: grab;
+}
+
+.photo-slider:active {
+  cursor: grabbing;
+}
+
+.photo-slider img {
+  flex: 0 0 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-slider img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* scrollbar gizle */
+.photo-slider::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .photo-slider {
+    max-width: 320px;
+  }
+
+  .photo-slider img {
+    height: 220px;
+  }
+}
+
+
+.photo-card {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: center;
+}
+
+.photo-card img {
+  width: 90%;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* oklar */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.slider-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.left {
+  left: -25px;
+}
+
+.slider-btn.right {
+  right: -25px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .photo-card img {
+    height: 220px;
+  }
+  .slider-btn {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #1f2937;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    color: #374151;
+}
+
+.contact-item i {
+    color: #6366f1;
+    font-size: 1.3rem;
+}
+
+/* Active nav link */
+.nav-link.active {
+    color: #6366f1;
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Section Styles */
+section {
+    padding: 5rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* About Section */
+.about {
+    background: #f9fafb;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #6366f1;
+    margin-bottom: 0.5rem;
+}
+
+.stat p {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+}
+
+/* About Team Image */
+.about-team-image {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-team-image:hover {
+    transform: scale(1.05);
+}
+
+/* Portfolio Images */
+.portfolio-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-img {
+    transform: scale(1.1);
+}
+
+/* Fallback for missing images */
+.image-placeholder {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.image-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #f3f4f6;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.service-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.service-card p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* Portfolio Section */
+.portfolio {
+    background: #f9fafb;
+}
+
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #e5e7eb;
+    background: white;
+    color: #6b7280;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #6366f1;
+    color: white;
+    border-color: #6366f1;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.portfolio-image .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.portfolio-image .image-placeholder i {
+    font-size: 3rem;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 2rem;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-overlay p {
+    color: #d1d5db;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .hero-container {
+        padding: 2rem 1rem;
+    }
+
+    .main-logo {
+        width: 150px;
+    }
+
+    .company-name {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+
+    .brands-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .brand-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .brand-title {
+        font-size: 1rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .brand-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+
+    .portfolio-filter {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .floating-card {
+        position: relative;
+        margin: 1rem 0;
+    }
+
+    .hero-image {
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- Mobil düzen optimizasyonları --- */
+@media (max-width: 768px) {
+
+  /* Hero ekran: logo ve başlık ortalansın */
+  .hero-screen {
+    height: auto;
+    padding: 4rem 1rem;
+  }
+
+  .hero-logo {
+    width: 150px;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  /* Fotoğraf slider (dokunmatik) */
+  .photo-slider {
+    gap: 0.5rem;
+  }
+
+  .photo-slider img {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+  }
+
+  /* Yan galeri (örnek: 4code sayfası) */
+  .side-gallery img {
+    height: 200px;
+    width: auto;
+  }
+
+  /* Kartlar */
+  .brand-card {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  /* Footer metin boyutu */
+  .footer p {
+    font-size: 0.9rem;
+  }
+
+  /* Geri butonu */
+  .back-btn {
+    top: 1rem;
+    left: 1rem;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Küçük telefon (480px altı) --- */
+@media (max-width: 480px) {
+  .hero-logo {
+    width: 120px;
+  }
+
+  .hero-title {
+    font-size: 1.2rem;
+  }
+
+  .photo-slider img {
+    height: 140px;
+  }
+
+  .side-gallery img {
+    height: 160px;
+  }
+
+  .content-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .content-text p {
+    font-size: 1rem;
+  }
+
+  .service-list li {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease;
+}
+
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.6s ease;
+}
+
+.slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+    background-color: #444;
+    transform: translateY(-3px);
+}
+/* Sağ Taraf Fotoğraf Galerisi */
+/* Sağda yatay kaydırmalı galeri */
+.side-gallery {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;              /* sağa kaydırmayı aktif eder */
+  scroll-behavior: smooth;       /* yumuşak kaydırma */
+  padding: 1rem;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.03);
+  scrollbar-width: thin;
+  scrollbar-color: #999 transparent;
+  max-width: 100%;
+}
+
+/* Scrollbar özelleştirme (Chrome, Edge, Safari) */
+.side-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+.side-gallery::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+.side-gallery::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.side-gallery img {
+  height: 300px;
+  width: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  flex-shrink: 0;                /* resimler küçülmez */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.side-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔥 Üst Logo Alanı */
+.top-logo {
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    background-color: white;
+}
+
+.main-logo {
+    width: 180px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.main-logo:hover {
+    transform: scale(1.05);
+}
+/* 🔥 Logo Hero Bölümü */
+.hero-logo-section {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* burada boş alan yüksekliği */
+    border-bottom: 1px solid #eee;
+}
+
+.hero-logo {
+    width: 200px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05);
+}
+/* 🔥 Ana ekran (Logo sayfası) */
+/* Ana ekran (hero-screen) düzeni */
+.hero-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* içerikleri dikey ortalar */
+  align-items: center;     /* yatay ortalar */
+  text-align: center;
+  background-color: #fff;
+  position: relative;
+}
+
+/* Logo ayarları */
+.hero-logo {
+  width: 200px;           /* boyutu sabitleyelim */
+  height: auto;
+  margin-bottom: 1.5rem;  /* yazıyla arayı dengeler */
+  transform: translateY(10px); /* logoyu biraz aşağı kaydırır */
+}
+
+/* Yazı ayarları */
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #000;
+  letter-spacing: 1px;
+  margin-top: 0;
+}
+
+/* Aşağı ok simgesi */
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  color: #000;
+  cursor: pointer;
+  animation: bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, -10px); }
+  60% { transform: translate(-50%, -5px); }
+}
+
+/* 🔥 Ana ekran (Logo sayfası) */
+.hero-screen {
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-logo {
+    width: 200px;
+    height: auto;
+    animation: fadeIn 1.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    color: #000;
+    font-size: 24px;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.scroll-down:hover {
+    transform: translateY(6px);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(10px); }
+    60% { transform: translateY(5px); }
+}
+@media (max-width: 768px) {
+  .side-gallery img {
+    height: 200px;
+  }
+}
+
+/* Tek kolon düzeni */
+.content-grid.single-column {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.content-grid.single-column .content-text {
+  max-width: 700px;
+  margin: 0 auto;
+}
+/* 🎬 Sadece ana sayfa (index.html) için siyah arka plan */
+.home-hero {
+  background: #000;
+  color: #fff;
+}
+
+.home-hero .main-logo {
+  filter: brightness(0) invert(1);
+}
+
+.home-hero .scroll-down {
+  color: #fff;
+}
+/* 🔙 Geri dön butonu */
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.back-btn i {
+  font-size: 1rem;
+}
+
+.back-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-2px);
+}
+
+/* 🌞 Açık temalı sayfalarda buton açık tonda olsun */
+body:not(.home) .back-btn {
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+body:not(.home) .back-btn:hover {
+  background: #fff;
+}
+

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helvacı Necmi - Bewolk Group</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- 🔙 Geri Dön Butonu -->
+<a href="index.html" class="back-btn">
+  <i class="fas fa-arrow-left"></i> Geri
+</a>
+
+
+  <!-- 🔥 ANA EKRAN (Logo sayfası) -->
+  <section class="hero-screen">
+    <div class="container">
+      <img src="assets/images/brands/helvaci-logo.png" alt="Helvacı Necmi Logo" class="hero-logo">
+      <h1 class="hero-title">HELVACI NECMİ - KÜTAHYA</h1>
+    </div>
+    <!-- Aşağı kaydırma oku -->
+    <div class="scroll-down">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- Hakkımızda -->
+  <section class="brand-content">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-text">
+          <h2>Hakkımızda</h2>
+          <p>
+            Helvacı Necmi olarak, Kütahya'nın geleneksel lezzetlerini modern kalite standartları ile buluşturuyoruz. 
+            Yılların deneyimi ve aile geleneğiyle üretilen ürünlerimiz, müşterilerimize en taze ve lezzetli deneyimi sunmaktadır.
+          </p>
+
+          <h3>Ürünlerimiz</h3>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Geleneksel Helva</li>
+            <li><i class="fas fa-check"></i> Tahin Helvası</li>
+            <li><i class="fas fa-check"></i> Fıstıklı Helva</li>
+            <li><i class="fas fa-check"></i> Çikolatalı Helva</li>
+            <li><i class="fas fa-check"></i> Özel Karışımlar</li>
+          </ul>
+        </div>
+
+        <div class="content-image">
+          <!-- 📸 Fotoğraf Slider -->
+          <div class="photo-slider">
+            <img src="assets/images/brands/helvaci1.jpeg" alt="Helvacı Necmi Ürün 1">
+            <img src="assets/images/brands/helvaci2.jpeg" alt="Helvacı Necmi Ürün 2">
+            <img src="assets/images/brands/helvaci3.jpeg" alt="Helvacı Necmi Ürün 3">
+            <img src="assets/images/brands/helvaci4.jpeg" alt="Helvacı Necmi Ürün 4">
+            <img src="assets/images/brands/helvaci5.jpeg" alt="Helvacı Necmi Ürün 4">
+            <img src="assets/images/brands/helvaci6.jpeg" alt="Helvacı Necmi Ürün 4">
+                
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İletişim -->
+  <section class="brand-contact">
+    <div class="container">
+      <div class="contact-info">
+        <h2>İletişim</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+90 (536) 588 1883</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>bewolkgroupp@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-brands fa-instagram"></i>
+            <span>helvacinecmikutahya</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Kütahya, Türkiye</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2025 Helvacı Necmi. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Başa dön butonu -->
+  <button id="scrollTopBtn" title="Başa Dön"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- ✅ Aşağı kaydırma + galeri script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollDownBtn = document.querySelector(".scroll-down");
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+      // Aşağı ok -> Hakkımızda kısmına kaydır
+      if (scrollDownBtn) {
+        scrollDownBtn.addEventListener("click", () => {
+          const nextSection = document.querySelector(".brand-content");
+          if (nextSection) nextSection.scrollIntoView({ behavior: "smooth" });
+        });
+      }
+
+      // Yukarı dön butonu görünür/gizlenir
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) scrollTopBtn.style.display = "flex";
+        else scrollTopBtn.style.display = "none";
+      });
+
+      // Yukarı dön
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      // 📱 Fotoğraf galerisi dokunmatik destek
+      const photoSlider = document.querySelector(".photo-slider");
+      if (photoSlider) {
+        let isDown = false, startX, scrollLeft;
+
+        photoSlider.addEventListener("mousedown", (e) => {
+          isDown = true;
+          startX = e.pageX - photoSlider.offsetLeft;
+          scrollLeft = photoSlider.scrollLeft;
+        });
+
+        photoSlider.addEventListener("mouseleave", () => isDown = false);
+        photoSlider.addEventListener("mouseup", () => isDown = false);
+
+        photoSlider.addEventListener("mousemove", (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - photoSlider.offsetLeft;
+          const walk = (x - startX) * 2;
+          photoSlider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch destek
+        photoSlider.addEventListener("touchstart", (e) => {
+          isDown = true;
+          startX = e.touches[0].pageX - photoSlider.offsetLeft;
+          scrollLeft = photoSlider.scrollLeft;
+        });
+
+        photoSlider.addEventListener("touchmove", (e) => {
+          if (!isDown) return;
+          const x = e.touches[0].pageX - photoSlider.offsetLeft;
+          const walk = (x - startX) * 2;
+          photoSlider.scrollLeft = scrollLeft - walk;
+        });
+
+        photoSlider.addEventListener("touchend", () => (isDown = false));
+      }
+    });
+  </script>
+
+</body>
+</html>
