@@ -221,6 +221,7 @@ body {
 }
 
 .brand-contact {
+    margin-top: 3rem;
     padding: 3rem 0;
     background: white;
 }
@@ -272,19 +273,28 @@ body {
   display: none;
 }
 
+/* 🔥 Mobil optimize edilmiş foto slider */
 @media (max-width: 768px) {
   .photo-slider {
-    max-width: 90%; /* ekranın çoğunu kaplasın */
+    max-width: 95%; /* ekranın neredeyse tamamı */
+    margin: 1.5rem auto 2.5rem; /* biraz boşluk bırak */
   }
 
   .photo-slider img {
-    height: 300px; /* 🔥 biraz daha yüksek */
+    height: 320px; /* 🔥 daha büyük görünüm */
+    object-fit: cover; /* ekranı doldur, kırpma çok az olur */
+    border-radius: 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .photo-slider {
+    max-width: 100%;
+    margin: 1rem auto 2rem;
+  }
+
   .photo-slider img {
-    height: 260px; /* küçük cihazlar için biraz kısalttık */
+    height: 280px; /* iPhone gibi küçük cihazlara uygun */
   }
 }
 
