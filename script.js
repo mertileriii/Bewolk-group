@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', revealOnScroll);
 document.addEventListener("DOMContentLoaded", () => {
   const scrollDownBtn = document.querySelector(".scroll-down");
   const scrollTopBtn = document.getElementById("scrollTopBtn");
-
+ });
   // 🔽 Aşağı ok tıklanınca .brand-content kısmına kaydır
   if (scrollDownBtn) {
     scrollDownBtn.addEventListener("click", () => {
@@ -216,13 +216,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
  // ✅ Dokunmatik ve fare destekli kaydırma
-const photoSlider = document.querySelector(".photo-slider");
-if (photoSlider) {
+
+
+ document.addEventListener("DOMContentLoaded", () => {
+  const photoSlider = document.querySelector(".photo-slider");
+  if (!photoSlider) return;
+
   let isDown = false;
   let startX;
   let scrollLeft;
 
-  // Fare olayları
+  // 🖱️ Fare olayları
   photoSlider.addEventListener("mousedown", (e) => {
     isDown = true;
     photoSlider.classList.add("active");
@@ -244,89 +248,25 @@ if (photoSlider) {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - photoSlider.offsetLeft;
-    const walk = (x - startX) * 1.5; // hassasiyet
+    const walk = (x - startX) * 1.5;
     photoSlider.scrollLeft = scrollLeft - walk;
   });
 
-  // 🔥 Dokunmatik olaylar (MOBİL)
-  let startTouchX = 0;
-  let startScrollLeft = 0;
-
+  // 📱 Dokunmatik olaylar (MOBİL)
   photoSlider.addEventListener("touchstart", (e) => {
-    startTouchX = e.touches[0].pageX;
-    startScrollLeft = photoSlider.scrollLeft;
+    isDown = true;
+    startX = e.touches[0].pageX - photoSlider.offsetLeft;
+    scrollLeft = photoSlider.scrollLeft;
+  }, { passive: true });
+
+  photoSlider.addEventListener("touchend", () => {
+    isDown = false;
   });
 
   photoSlider.addEventListener("touchmove", (e) => {
-    const touchX = e.touches[0].pageX;
-    const walk = (touchX - startTouchX) * 1.5;
-    photoSlider.scrollLeft = startScrollLeft - walk;
-  }, { passive: true }); // 🔑 Tarayıcı performans iyileştirmesi
-}
-
-  }
-);
-
-
-// ==========================
-// 📸 Dokunmatik destekli foto slider (Touch eventleri)
-// ==========================
-const slider = document.querySelector(".photo-slider");
-if (slider) {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  slider.addEventListener("mousedown", e => {
-    isDown = true;
-    slider.classList.add("active");
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
-  slider.addEventListener("mouseleave", () => {
-    isDown = false;
-    slider.classList.remove("active");
-  });
-  slider.addEventListener("mouseup", () => {
-    isDown = false;
-    slider.classList.remove("active");
-  });
-  slider.addEventListener("mousemove", e => {
     if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
+    const x = e.touches[0].pageX - photoSlider.offsetLeft;
     const walk = (x - startX) * 1.5;
-    slider.scrollLeft = scrollLeft - walk;
-  });
-
-  // Mobil touch desteği
-  slider.addEventListener("touchstart", e => {
-    isDown = true;
-    startX = e.touches[0].pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
-  slider.addEventListener("touchend", () => {
-    isDown = false;
-  });
-  slider.addEventListener("touchmove", e => {
-    if (!isDown) return;
-    const x = e.touches[0].pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    slider.scrollLeft = scrollLeft - walk;
-  });
-}
-
-console.log("🎨 Bihter Cafe site script aktif!");
-
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollDownBtn = document.querySelector(".scroll-down");
-  const nextSection = document.querySelector(".brands");
-
-  if (scrollDownBtn && nextSection) {
-    scrollDownBtn.addEventListener("click", () => {
-      nextSection.scrollIntoView({ behavior: "smooth" });
-    });
-  }
+    photoSlider.scrollLeft = scrollLeft - walk;
+  }, { passive: false });
 });
-
-
