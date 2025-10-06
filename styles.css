@@ -274,13 +274,20 @@ body {
 
 @media (max-width: 768px) {
   .photo-slider {
-    max-width: 320px;
+    max-width: 90%; /* ekranın çoğunu kaplasın */
   }
 
   .photo-slider img {
-    height: 220px;
+    height: 300px; /* 🔥 biraz daha yüksek */
   }
 }
+
+@media (max-width: 480px) {
+  .photo-slider img {
+    height: 260px; /* küçük cihazlar için biraz kısalttık */
+  }
+}
+
 
 
 .photo-card {
