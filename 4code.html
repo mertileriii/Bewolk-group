@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>4Code Studio - Bewolk Group</title>
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- 🔧 Yollar kökten başlatıldı -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <style>
-    /* Responsive düzen için ek stiller */
+    /* 🔹 Responsive düzen */
     .content-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -25,9 +28,10 @@
 
     .side-img {
       width: 100%;
+      height: auto;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      object-fit: cover;
+      object-fit: contain; /* kırpma yok */
     }
 
     .contact-details {
@@ -120,7 +124,7 @@
 </head>
 <body>
   <!-- 🔙 Geri Dön Butonu -->
-  <a href="index.html" class="back-btn">
+  <a href="/" class="back-btn">
     <i class="fas fa-arrow-left"></i> Geri
   </a>
 
