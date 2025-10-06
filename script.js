@@ -215,45 +215,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 📱 Fotoğraf galerisi dokunmatik destek (varsa)
-  const photoSlider = document.querySelector(".photo-slider, .side-gallery");
-  if (photoSlider) {
-    let isDown = false, startX, scrollLeft;
+ // ✅ Dokunmatik ve fare destekli kaydırma
+const photoSlider = document.querySelector(".photo-slider");
+if (photoSlider) {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-    photoSlider.addEventListener("mousedown", (e) => {
-      isDown = true;
-      startX = e.pageX - photoSlider.offsetLeft;
-      scrollLeft = photoSlider.scrollLeft;
-    });
+  // Fare olayları
+  photoSlider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    photoSlider.classList.add("active");
+    startX = e.pageX - photoSlider.offsetLeft;
+    scrollLeft = photoSlider.scrollLeft;
+  });
 
-    photoSlider.addEventListener("mouseleave", () => (isDown = false));
-    photoSlider.addEventListener("mouseup", () => (isDown = false));
+  photoSlider.addEventListener("mouseleave", () => {
+    isDown = false;
+    photoSlider.classList.remove("active");
+  });
 
-    photoSlider.addEventListener("mousemove", (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - photoSlider.offsetLeft;
-      const walk = (x - startX) * 2;
-      photoSlider.scrollLeft = scrollLeft - walk;
-    });
+  photoSlider.addEventListener("mouseup", () => {
+    isDown = false;
+    photoSlider.classList.remove("active");
+  });
 
-    // Touch destek
-    photoSlider.addEventListener("touchstart", (e) => {
-      isDown = true;
-      startX = e.touches[0].pageX - photoSlider.offsetLeft;
-      scrollLeft = photoSlider.scrollLeft;
-    });
+  photoSlider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - photoSlider.offsetLeft;
+    const walk = (x - startX) * 1.5; // hassasiyet
+    photoSlider.scrollLeft = scrollLeft - walk;
+  });
 
-    photoSlider.addEventListener("touchmove", (e) => {
-      if (!isDown) return;
-      const x = e.touches[0].pageX - photoSlider.offsetLeft;
-      const walk = (x - startX) * 2;
-      photoSlider.scrollLeft = scrollLeft - walk;
-    });
+  // 🔥 Dokunmatik olaylar (MOBİL)
+  let startTouchX = 0;
+  let startScrollLeft = 0;
 
-    photoSlider.addEventListener("touchend", () => (isDown = false));
+  photoSlider.addEventListener("touchstart", (e) => {
+    startTouchX = e.touches[0].pageX;
+    startScrollLeft = photoSlider.scrollLeft;
+  });
+
+  photoSlider.addEventListener("touchmove", (e) => {
+    const touchX = e.touches[0].pageX;
+    const walk = (touchX - startTouchX) * 1.5;
+    photoSlider.scrollLeft = startScrollLeft - walk;
+  }, { passive: true }); // 🔑 Tarayıcı performans iyileştirmesi
+}
+
   }
-});
+);
 
 
 // ==========================

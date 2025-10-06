@@ -233,20 +233,17 @@ body {
 }
 
 
+
 .photo-slider {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* 🔥 iOS desteği */
   gap: 1rem;
-  width: 100%;
-  max-width: 450px; /* kart boyutu */
-  margin: 2rem auto;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  background: #fff;
   cursor: grab;
 }
+
 
 .photo-slider:active {
   cursor: grabbing;
